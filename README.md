@@ -21,4 +21,5 @@ automate build image using github and dockerhub repositories.
 >3. you will be redirected on the account. go to the docker image repository -> builds -> github and select relevant repository from github
 >4. you need to change docker file location according to your project. in this case it would be Shopping/Shopping.Client/Dockerfile 
 > 5. Save
+> 
 > after that every push on the master branch will trigger docker hub builder and build newest version of the image
