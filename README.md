@@ -14,7 +14,7 @@ push image to registry
 docker tag {IMAGE ID} {name}
 docker push {name}
 ```
-### CI
+### CI/CD
 automate build image using github and dockerhub repositories.
 >1. you should go to the builds tab on the dockerhub repository and chose link to github option
 >2. chose 'connect' next to the github and authorize Docker Hub Builder
@@ -23,3 +23,16 @@ automate build image using github and dockerhub repositories.
 > 5. Save
 > 
 > after that every push on the master branch will trigger docker hub builder and build newest version of the image
+
+
+connect to the azure app service
+> 1. Create azure app service:
+>  1 Create resource > Containers > Web App for Containers
+>  2	chose your plan and go to the docker tab
+>  3 chose single container option 
+>  4 chose docker hub and indicate your image name
+>  5 create resource and go to the resource
+>  2. go to deployment center
+>  3. check 'Continuous deployment' on and save
+>  4. Copy webhook URL
+>  5. go to docker hub repository, webhooks tab paste url and create new webhook with any name.
