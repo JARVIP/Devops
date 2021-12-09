@@ -27,12 +27,12 @@ automate build image using github and dockerhub repositories.
 
 connect to the azure app service
 > 1. Create azure app service:
->  1 Create resource > Containers > Web App for Containers
->  2	chose your plan and go to the docker tab
->  3 chose single container option 
->  4 chose docker hub and indicate your image name
->  5 create resource and go to the resource
->  2. go to deployment center
->  3. check 'Continuous deployment' on and save
+>    - Create resource > Containers > Web App for Containers
+>    - Chose your plan and go to the docker tab
+>    - Chose single container option 
+>    - chose docker hub and indicate your image name
+>    -create resource and go to the resource
+>  2. Go to deployment center
+>  3. Check 'Continuous deployment' on and save
 >  4. Copy webhook URL
->  5. go to docker hub repository, webhooks tab paste url and create new webhook with any name.
+>  5. Go to docker hub repository, webhooks tab paste url and create new webhook with any name.
