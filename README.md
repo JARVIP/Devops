@@ -7,6 +7,8 @@ docker image
 docker ps
 docker run
 docker rmi
+docker logs -f {container name}
+docker exec -it {container name} /bin/bash
 ```
 push image to registry
 >before pushing you should create repository on the dockerhub and replace {name}  by repository full name in commands bellow
