@@ -1,3 +1,4 @@
+
 # Devops
 This project provides example of using cloud development tools within azure.
 ### Docker Commands
@@ -9,6 +10,14 @@ docker run
 docker rmi
 docker logs -f {container name}
 docker exec -it {container name} /bin/bash
+docker stop $(docker ps -aq) # stop all container
+docker rm $(docker ps -aq) # remove all container
+docker rmi $(docker images -aq) # remove all images
+docker system prune  # all stopped containers  
+					 # all networks not used by at least one container  
+					 # all dangling images  
+					 # all dangling build cache
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d # orchestration
 ```
 push image to registry
 >before pushing you should create repository on the dockerhub and replace {name}  by repository full name in commands bellow
