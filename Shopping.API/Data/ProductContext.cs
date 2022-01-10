@@ -9,7 +9,7 @@ namespace Shoping.API.Data
         {
             var client = new MongoClient(configuration["DatabaseSettings:ConnectionString"]);
             var database = client.GetDatabase(configuration["DatabaseSettings:DatabaseName"]);
-            Products = database.GetCollection<Product>(configuration["DatabaseSettings.CollectionName"]);
+            Products = database.GetCollection<Product>(configuration["DatabaseSettings:CollectionName"]);
             SeedData(Products);
         }
 
