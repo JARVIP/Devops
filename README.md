@@ -10,14 +10,14 @@ docker run
 docker rmi
 docker logs -f {container name}
 docker exec -it {container name} /bin/bash
-docker stop $(docker ps -aq) # stop all container
-docker rm $(docker ps -aq) # remove all container
+docker stop $(docker ps -aq) -- stop all container
+docker rm $(docker ps -aq) -- remove all container
 docker rmi $(docker images -aq) # remove all images
-docker system prune  # all stopped containers  
-					 # all networks not used by at least one container  
-					 # all dangling images  
-					 # all dangling build cache
-docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d # orchestration
+docker system prune  -- all stopped containers  
+					 -- all networks not used by at least one container  
+					 -- all dangling images  
+					-- all dangling build cache
+docker-compose -f docker-compose.yml -f docker-compose.override.yml up -d -- orchestration
 ```
 push image to registry
 >before pushing you should create repository on the dockerhub and replace {name}  by repository full name in commands bellow
@@ -25,6 +25,22 @@ push image to registry
 docker tag {IMAGE ID} {name}
 docker push {name}
 ```
+### Kubectl Commands
+
+    kubectl cluster-info
+    kubectl get all -- pods, services, deployments..
+
+### Deploy to Kubernetes 
+there are two way to deploy to kubernetes. Declarative & Imperative.
+#### Imperative
+    kubectl run [container_name] --image=[image_name]
+    kubectl port-forward [pod] [ports]
+    
+    kubectl create [resource]
+    kubectl apply [resource] -- create or modify resources
+
+#### Declarative
+
 ### CI/CD
 automate build image using github and dockerhub repositories.
 >1. you should go to the builds tab on the dockerhub repository and chose link to github option
