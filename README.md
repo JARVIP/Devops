@@ -9,7 +9,7 @@ docker ps
 docker run
 docker rmi
 docker logs -f {container name}
-docker exec -it {container name} /bin/bash
+docker exec -it {conQtainer name} /bin/bash
 docker stop $(docker ps -aq) -- stop all container
 docker rm $(docker ps -aq) -- remove all container
 docker rmi $(docker images -aq) # remove all images
@@ -35,12 +35,24 @@ there are two way to deploy to kubernetes. Declarative & Imperative.
 #### Imperative
     kubectl run [container_name] --image=[image_name]
     kubectl port-forward [pod] [ports]
-    
+
     kubectl create [resource]
     kubectl apply [resource] -- create or modify resources
 
-#### Declarative
+	kubectl delete deployment [resource]
 
+#### Declarative
+	kubectl apply -f {filename.yaml}
+	kubectl get deployment [resource] -o yaml #get yaml file from deployment
+##### Debugging Pods
+	kubectl logs [pod_name]
+	kubectl describe pod [pod_name]
+	kubectl exec [pod_name] -it sh
+	kubectl get pod --watch
+	kubectl get pod -o wide
+
+#### Dashboard
+[kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/ "kubernetes dashboard")
 ### CI/CD
 automate build image using github and dockerhub repositories.
 >1. you should go to the builds tab on the dockerhub repository and chose link to github option
