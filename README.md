@@ -12,7 +12,8 @@ docker logs -f {container name}
 docker exec -it {conQtainer name} /bin/bash
 docker stop $(docker ps -aq) -- stop all container
 docker rm $(docker ps -aq) -- remove all container
-docker rmi $(docker images -aq) # remove all images
+# remove all images
+docker rmi $(docker images -aq) 
 docker system prune  -- all stopped containers  
 					 -- all networks not used by at least one container  
 					 -- all dangling images  
@@ -25,6 +26,7 @@ push image to registry
 docker tag {IMAGE ID} {name}
 docker push {name}
 ```
+
 ### Kubectl Commands
 
     kubectl cluster-info
@@ -53,6 +55,17 @@ there are two way to deploy to kubernetes. Declarative & Imperative.
 
 #### Dashboard
 [kubernetes dashboard](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/ "kubernetes dashboard")
+
+### Deploy APP on kubernetes
+	# create docker images
+	docker-compose -f .\docker-compose.yml -f .\docker-compose.override.yml up -d 
+	# create repositories on docker-hub
+	# tag local images
+	docker tag {image_id} {repository name}
+	# login to dockerhub from CMD
+	docker login
+	# push image to dockerhub
+	docker push {repository name}
 ### CI/CD
 automate build image using github and dockerhub repositories.
 >1. you should go to the builds tab on the dockerhub repository and chose link to github option
